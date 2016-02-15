@@ -1382,13 +1382,8 @@ void interfacest::handlemovie(char flushall)
 			int frame_size=init.display.grid_x*init.display.grid_y*2;
 			if(supermovie_pos+frame_size>=MOVIEBUFFSIZE||flushall)
 				{
-				int length=write_movie_chunk();
-
-				if(length>5000000)
-					{
-					finish_movie();
-					}
-				else supermovie_pos=0;
+				write_movie_chunk();
+				supermovie_pos=0;
 				}
 			}
 		}
